@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sat.Recruitment.Api.Utils;
 
 namespace Sat.Recruitment.Api.Entities
 {
@@ -27,7 +28,7 @@ namespace Sat.Recruitment.Api.Entities
             var calculateGif = gifLookup.GetValueOrDefault(userType, money => 0);
             var gif = calculateGif(decimal.Parse(money));
             Name = name;
-            Email = email;
+            Email = EmailUtils.NormalizeEmail(email);
             Address = address;
             Phone = phone;
             UserType = userType;
